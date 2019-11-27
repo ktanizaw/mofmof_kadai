@@ -10,14 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20191126024103) do
+ActiveRecord::Schema.define(version: 20191127080647) do
 
   create_table "children", force: :cascade do |t|
     t.string   "name"
     t.integer  "age"
     t.integer  "parent_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.string   "route_name"
+    t.string   "station_name"
+    t.integer  "walking_minutes"
   end
 
   create_table "parents", force: :cascade do |t|
@@ -25,6 +28,9 @@ ActiveRecord::Schema.define(version: 20191126024103) do
     t.integer  "age"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "price"
+    t.string   "address"
+    t.text     "other"
   end
 
 end

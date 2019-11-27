@@ -10,6 +10,7 @@ class ParentsController < ApplicationController
 
   def new
     @parent = Parent.new
+    2.times { @parent.childs.build }
   end
 
   def edit

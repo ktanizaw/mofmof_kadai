@@ -1,13 +1,15 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Parents</h1>
+<h1>物件一覧</h1>
 
 <table>
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Age</th>
-      <th colspan="3"></th>
+      <th>物件名</th>
+      <th>賃料</th>
+      <th>住所</th>
+      <th>築年数</th>
+      <th>備考</th>
     </tr>
   </thead>
 
@@ -15,10 +17,13 @@
     <% @parents.each do |parent| %>
       <tr>
         <td><%= parent.name %></td>
+        <td><%= parent.price %></td>
+        <td><%= parent.address %></td>
         <td><%= parent.age %></td>
-        <td><%= link_to 'Show', parent %></td>
-        <td><%= link_to 'Edit', edit_parent_path(parent) %></td>
-        <td><%= link_to 'Destroy', parent, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= parent.other %></td>
+        <td><%= link_to '詳細', parent %></td>
+        <td><%= link_to '編集', edit_parent_path(parent) %></td>
+        <td><%= link_to '削除', parent, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -26,4 +31,4 @@
 
 <br>
 
-<%= link_to 'New Parent', new_parent_path %>
+<%= link_to '物件を登録する', new_parent_path %>

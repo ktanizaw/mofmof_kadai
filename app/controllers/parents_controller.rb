@@ -56,6 +56,6 @@ class ParentsController < ApplicationController
     end
 
     def parent_params
-      params.require(:parent).permit(:name, :age)
+      params.require(:parent).permit(:name, :price, :address, :age, :other, childs_attributes: [:route_name])
     end
 end

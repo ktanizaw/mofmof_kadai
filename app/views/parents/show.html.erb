@@ -41,5 +41,18 @@
   <strong>徒歩分数:</strong>
 </p>
 
+<%= form_for @parent do |parent| %>
+    <div class="field">
+      <%= parent.label :物件名 %>
+      <%= parent.text_field :name %>
+    </div>
+    <div class="field">
+      <%= parent.fields_for :childs do |child| %>
+          <%= child.label :路線名 %>
+          <%= child.text_field :route_name %>
+      <% end %>
+    </div>
+<% end %>
+
 <%= link_to '編集', edit_parent_path(@parent) %> |
 <%= link_to '戻る', parents_path %>

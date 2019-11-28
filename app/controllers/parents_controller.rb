@@ -3,11 +3,12 @@ class ParentsController < ApplicationController
 
   def index
     @parents = Parent.all
-    @childs = Child.all
   end
 
   def show
-    @childs = Child.where(route_name: params[:route_name])
+    # binding.pry
+    # @parents = Child.all
+    @childs = @parent.childs
   end
 
   def new
@@ -57,6 +58,8 @@ class ParentsController < ApplicationController
     end
 
     def parent_params
-      params.require(:parent).permit(:name, :price, :address, :age, :other, childs_attributes: [:route_name, :station_name, :walking_minutes])
+      params.require(:parent).permit(:name, :price, :address, :age, :other,
+                                      childs_attributes: %i(id _destroy parent_id route_name station_name walking_minutes)
+                                    )
     end
 end

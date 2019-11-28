@@ -10,9 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20191127092055) do
+ActiveRecord::Schema.define(version: 20191128013559) do
 
-  create_table "childs", force: :cascade do |t|
+  create_table "children", force: :cascade do |t|
     t.string   "name"
     t.integer  "age"
     t.integer  "parent_id"

@@ -3,9 +3,11 @@ class ParentsController < ApplicationController
 
   def index
     @parents = Parent.all
+    @childs = Child.all
   end
 
   def show
+    @childs = Child.where(route_name: params[:route_name])
   end
 
   def new
@@ -18,7 +20,6 @@ class ParentsController < ApplicationController
 
   def create
     @parent = Parent.new(parent_params)
-
     respond_to do |format|
       if @parent.save
         format.html { redirect_to @parent, notice: 'Parent was successfully created.' }
@@ -56,6 +57,6 @@ class ParentsController < ApplicationController
     end
 
     def parent_params
-      params.require(:parent).permit(:name, :price, :address, :age, :other, childs_attributes: [:route_name])
+      params.require(:parent).permit(:name, :price, :address, :age, :other, childs_attributes: [:route_name, :station_name, :walking_minutes])
     end
 end

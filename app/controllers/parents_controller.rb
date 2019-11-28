@@ -17,6 +17,7 @@ class ParentsController < ApplicationController
   end
 
   def edit
+    @parent.childs.build
   end
 
   def create

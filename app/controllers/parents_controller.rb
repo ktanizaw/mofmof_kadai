@@ -17,7 +17,12 @@ class ParentsController < ApplicationController
   end
 
   def edit
+    if @parent.childs.last.route_name.blank? &&
+      @parent.childs.last.station_name.blank? &&
+      @parent.childs.last.walking_minutes.blank?
+    else
     @parent.childs.build
+    end
   end
 
   def create
